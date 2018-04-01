@@ -1,5 +1,5 @@
-let productlist_link = "http://kea-alt-del.dk/t5/api/productlist";
-let image_path = "http://kea-alt-del.dk/t5/site/imgs/small/";
+let productlist_link = "https://kea-alt-del.dk/t5/api/productlist";
+let image_path = "https://kea-alt-del.dk/t5/site/imgs/small/";
 let template = document.querySelector('.product_template').content;
 let recipe_of_d_week = [];
 let allproducts = [];
