@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Petrograd Restaurant</title>
+
+        <link rel="stylesheet" href="styles/style.css"/>
+
+    </head>
+    <body>
+
+
+        <main>
+
+            <header class="logo">
+                <h1>Petrogard</h1>
+            </header>
+
+            <nav class="topNav">
+                <a onclick="filter_products('recipes')" href="#recipes">Recipes</a>
+                <a onclick="filter_products('starter')" href="#starter">Starter</a>
+                <a onclick="filter_products('main')" href="#main">Main</a>
+                <a onclick="filter_products('dessert')" href="#dessert">Dessert</a>
+                <a onclick="filter_products('drinks')" href="#drinks">Drinks</a>
+                <a onclick="filter_products('sideorders')" href="#sideorders">Sideorders</a>
+            </nav>
+
+            <section class="banner">
+                <header>
+                    <h2><span>Find Recipes</span></h2>
+                </header>
+                <form onsubmit="return submitSearchForm()">
+                    <span>&#x1F50D;</span>
+                    <input type="text" name="search" placeholder="Search" value=""/>
+                </form>
+            </section>
+
+            <section class="regular_items">
+                <header class="withHrLine">
+                    <h2 class="recipeHeader"><span>Recipes</span></h2>
+                </header>
+                <div class="action_menu">
+                    <div class="txt-right">Order / Sort By:</div>
+                    <div class="">
+                        <div class="dropdown">
+                            <button class="primary orderby_button">Order / Sort By</button>
+                            <ul class="dropdown-content">
+                                <li><button class="info" onclick="orderby('category')">Categories</button></li>
+                                <li><button class="info" onclick="orderby('price')">Prices</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="txt-right">Filter By:</div>
+                    <div class="">
+                        <div class="dropdown">
+                            <button class="primary orderby_button">Filter By</button>
+                            <ul class="dropdown-content">
+                                <li><button class="info" onclick="search('alcohol')">Alcohol</button></li>
+                                <li><button class="info" onclick="search('discount')">Discounts</button></li>
+                                <li><button class="info" onclick="search('vegetarian')">Vegetarian</button></li>
+                                <li><button class="info" onclick="search('soldout')">Sold Out</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="items">
+
+                </div>
+            </section>
+
+            <section class="featured_items">
+                <header class="withHrLine">
+                    <h2><span>Recipes of the Week</span></h2>
+                </header>
+                <div class="items">
+
+                </div>
+            </section>
+
+            <footer>
+                <p>Copyright @2017. All rights resered.</p>
+            </footer>
+
+        </main>
+
+        <article class="modal">
+            <div class="modal-content">
+                <header class="modal-header"><h3>Recipe Information</h3></header>
+                <div class="item_img modal-img">
+                    <img class="product-small-img" src="images/sm-img-sizer.png" alt="data-caption">
+                </div>
+                <div class="hr">&nbsp;</div>
+                <h4 class="name modal-name" style="color: #c7ce16; text-decoration: underline;">data-name</h4>
+                <p class="category">&mdash; <a class="product_category">data-category</a></p>
+                <p class="description"><span class="bold txt-left">Description: </span><span class="content"></span></p>
+                <h4 class="price">Price: <span class="oldprice color-info"><span></span> kr</span>&nbsp; &nbsp;<span class="label-info newprice hidden"><span>data-price</span> kr</span></h4>
+                <div class="soldout hidden"><span class="label-danger size-2x">Sold Out!</span></div>
+                <div class="information">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="4">Basic Information</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="alcohol icon">
+                                        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                            <path class="svg_path" d="M704 896v-384h-256v256q0 53 37.5 90.5t90.5 37.5h128zm1024 448v192h-1152v-192l128-192h-128q-159 0-271.5-112.5t-112.5-271.5v-320l-64-64 32-128h480l32-128h960l32 192-64 32v800z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                                <td>Alcohol</td>
+                                <td>
+                                    <div class="alcohol status icon ok">
+                                        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <path class="svg_path" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="alcohol status icon notok">
+                                        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <path class="svg_path" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                                <td><span class="alcohol-data label-info"></span></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="vegetarian icon">
+                                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                         width="620.000000pt" height="658.000000pt" viewBox="0 0 620.000000 658.000000"
+                                         preserveAspectRatio="xMidYMid meet">
+                                            <g transform="translate(0.000000,658.000000) scale(0.100000,-0.100000)"
+                                            fill="#000000" stroke="none">
+                                                <path class="svg_path" d="M6115 6573 c-11 -2 -139 -33 -285 -68 -146 -36 -447 -103 -669 -150
+                                                -541 -114 -636 -143 -789 -236 -401 -246 -669 -633 -774 -1121 -18 -87 -22
+                                                -134 -22 -298 0 -196 12 -278 41 -287 6 -2 42 59 81 139 120 246 281 467 506
+                                                696 152 154 239 226 343 280 154 80 283 116 283 78 0 -20 -57 -92 -207 -262
+                                                -139 -157 -343 -437 -464 -639 -145 -241 -360 -681 -494 -1010 -107 -263 -317
+                                                -852 -440 -1230 -171 -528 -305 -925 -326 -967 -16 -32 -23 -37 -34 -28 -30
+                                                25 -112 302 -315 1070 -222 838 -318 1146 -498 1596 -192 480 -292 670 -510
+                                                969 -183 251 -526 642 -708 808 -309 280 -660 497 -804 497 -55 0 -41 -23 145
+                                                -235 373 -426 675 -848 922 -1285 353 -626 544 -1114 863 -2208 145 -499 195
+                                                -686 304 -1139 80 -329 119 -503 251 -1116 31 -141 65 -286 76 -322 30 -98 36
+                                                -100 289 -100 233 0 250 4 287 70 42 74 62 176 183 938 33 208 74 448 91 535
+                                                176 906 572 2101 817 2464 84 124 86 125 370 183 278 56 425 104 612 201 153
+                                                80 280 173 411 304 267 267 335 431 384 930 45 467 48 483 115 721 21 75 40
+                                                156 42 180 3 43 2 44 -27 46 -16 0 -39 -1 -50 -4z"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </td>
+                                <td>Vegetarian</td>
+                                <td>
+                                    <div class="vegetarian status icon ok">
+                                        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <path class="svg_path" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="vegetarian status icon notok">
+                                        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <path class="svg_path" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                                <td><span class="vegetarian-data"></span>&mdash;</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="region icon">
+                                        <svg width="2048" height="1792" viewBox="0 0 2048 1792" xmlns="http://www.w3.org/2000/svg">
+                                            <path class="svg_path" d="M2048 1536v128h-2048v-1536h128v1408h1920zm-384-1024l256 896h-1664v-576l448-576 576 576z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                                <td>Region</td>
+                                <td>
+                                    <span>&mdash;</span>
+                                </td>
+                                <td><span class="region-data label-info"></span></span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="star icon">
+                                       <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                            <path class="svg_path" d="M1250 957l257-250-356-52-66-10-30-60-159-322v963l59 31 318 168-60-355-12-66zm452-262l-363 354 86 500q5 33-6 51.5t-34 18.5q-17 0-40-12l-449-236-449 236q-23 12-40 12-23 0-34-18.5t-6-51.5l86-500-364-354q-32-32-23-59.5t54-34.5l502-73 225-455q20-41 49-41 28 0 49 41l225 455 502 73q45 7 54 34.5t-24 59.5z"/>
+                                        </svg>
+                                    </div>
+                                </td>
+                                <td>Rating</td>
+                                <td>
+                                    <span>&mdash;</span>
+                                </td>
+                                <td><span class="star-data label-info"></span></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="rating">
+
+                </div>
+                <div class="related-items">
+
+                </div>
+                <div class="modal-footer">
+                    <button class="danger close">Close</button>
+                </div>
+            </div>
+        </article>
+
+        <template class="product_template">
+			<article class="recipes">
+                <div class="item_summary">
+                    <div class="item_img">
+                        <img class="product-small-img" src="images/sm-img-sizer.png" alt="data-caption">
+                    </div>
+                    <h4 class="name">data-name</h4>
+                    <p class="category">&mdash; <a class="product_category" href="#">data-category</a></p>
+                    <p class="description hidden"><span class="bold txt-left">Description: </span><span class="content"></span></p>
+                    <h4 class="price">Price: <span class="oldprice color-info"><span></span> kr</span>&nbsp; &nbsp;<span class="label-info newprice hidden"><span>data-price</span> kr</span></h4>
+                    <div class="item_basic_info">
+                        <div class="header">Details: </div>
+                        <div class="alcohol icon">
+                            <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                <path class="svg_path" d="M704 896v-384h-256v256q0 53 37.5 90.5t90.5 37.5h128zm1024 448v192h-1152v-192l128-192h-128q-159 0-271.5-112.5t-112.5-271.5v-320l-64-64 32-128h480l32-128h960l32 192-64 32v800z"/>
+                            </svg>
+                        </div>
+                        <div class="vegetarian icon">
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                             width="620.000000pt" height="658.000000pt" viewBox="0 0 620.000000 658.000000"
+                             preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,658.000000) scale(0.100000,-0.100000)"
+                                fill="#000000" stroke="none">
+                                    <path class="svg_path" d="M6115 6573 c-11 -2 -139 -33 -285 -68 -146 -36 -447 -103 -669 -150
+                                    -541 -114 -636 -143 -789 -236 -401 -246 -669 -633 -774 -1121 -18 -87 -22
+                                    -134 -22 -298 0 -196 12 -278 41 -287 6 -2 42 59 81 139 120 246 281 467 506
+                                    696 152 154 239 226 343 280 154 80 283 116 283 78 0 -20 -57 -92 -207 -262
+                                    -139 -157 -343 -437 -464 -639 -145 -241 -360 -681 -494 -1010 -107 -263 -317
+                                    -852 -440 -1230 -171 -528 -305 -925 -326 -967 -16 -32 -23 -37 -34 -28 -30
+                                    25 -112 302 -315 1070 -222 838 -318 1146 -498 1596 -192 480 -292 670 -510
+                                    969 -183 251 -526 642 -708 808 -309 280 -660 497 -804 497 -55 0 -41 -23 145
+                                    -235 373 -426 675 -848 922 -1285 353 -626 544 -1114 863 -2208 145 -499 195
+                                    -686 304 -1139 80 -329 119 -503 251 -1116 31 -141 65 -286 76 -322 30 -98 36
+                                    -100 289 -100 233 0 250 4 287 70 42 74 62 176 183 938 33 208 74 448 91 535
+                                    176 906 572 2101 817 2464 84 124 86 125 370 183 278 56 425 104 612 201 153
+                                    80 280 173 411 304 267 267 335 431 384 930 45 467 48 483 115 721 21 75 40
+                                    156 42 180 3 43 2 44 -27 46 -16 0 -39 -1 -50 -4z"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="soldout icon hidden"><span class="label-danger">Sold Out!</span></div>
+                    </div>
+                </div>
+                <div class="txt-right">
+                    <button id="5" class="details-button info" onclick='openModal(this.id)'>Details</button>
+                </div>
+            </article>
+		</template>
+
+        <script type="text/javascript" src="scripts/script.js"></script>
+        <script type="text/javascript" src="scripts/search.js"></script>
+        <script type="text/javascript" src="scripts/modal.js"></script>
+    </body>
+</html>
