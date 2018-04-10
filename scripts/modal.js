@@ -1,5 +1,5 @@
-let product_link = 'http://kea-alt-del.dk/t5/api/product?id=';
-let modal_image_path = "http://kea-alt-del.dk/t5/site/imgs/medium/";
+let product_link = 'https://kea-alt-del.dk/t5/api/product?id=';
+let modal_image_path = "https://kea-alt-del.dk/t5/site/imgs/medium/";
 let modal = document.querySelector(".modal");
 
 function openModal(id){
